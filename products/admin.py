@@ -11,6 +11,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    readonly_fields = ("date_created", "date_of_change")
     list_display = ('pk', 'name', 'price', 'category')
     list_filter = ('category',)
     search_fields = ('name',)
