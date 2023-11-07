@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 class BlogCreateView(CreateView):
     model = Blog
     fields = ['name', 'slug', 'description', 'preview', 'is_publish',]
-    success_url = reverse_lazy('products:home')
+    success_url = reverse_lazy('blog_list')
 
 
 class BlogUpdateView(UpdateView):
