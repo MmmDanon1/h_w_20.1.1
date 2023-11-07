@@ -1,12 +1,13 @@
 from django.urls import path, include
 from . import views
+from products.views import ProductListView, ProductDetailView
 
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('product/<int:product_id>/', views.product, name='product')
+    path('', ProductListView.as_view(), name='home'),
+    path('product/<int:pk>/', ProductDetailView.as_view(), name='product')
 ]
 
 if settings.DEBUG:
