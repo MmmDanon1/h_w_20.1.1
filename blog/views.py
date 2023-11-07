@@ -5,13 +5,13 @@ from django.urls import reverse_lazy
 
 class BlogCreateView(CreateView):
     model = Blog
-    fields = ['name', 'slug', 'description', 'preview', 'is_publish']
-    success_url = reverse_lazy('blog_list')
+    fields = ['name', 'slug', 'description', 'preview', 'is_publish',]
+    success_url = reverse_lazy('products:home')
 
 
 class BlogUpdateView(UpdateView):
     model = Blog
-    fields = ['name', 'slug', 'description', 'preview', 'is_publish']
+    fields = ['name', 'slug', 'description', 'preview', 'is_publish',]
     success_url = reverse_lazy('blog_list')
 
 
