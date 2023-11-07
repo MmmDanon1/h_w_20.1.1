@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-10"></div>
         <div class="col-2">
-            <a class="btn btn-success" href='blog:create'>ДОБАВИТЬ СТАТЬЮ</a>
+            <a class="btn" href="{% url 'blog_create' %}">ДОБАВИТЬ СТАТЬЮ</a>
         </div>
     </div>
 </div>
@@ -29,8 +29,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ object.name|upper }}</h5>
                         <p class="card-text">
-                            {{object.body|slice:"500"}}...
-                            <a href='blog:article'>читать далее...</a>
+                            {{object.description|slice:"500"}}
                         </p>
                         <p><b>Дата публикации: </b>{{object.date_created}}</p>
                     </div>
@@ -38,10 +37,10 @@
                 <div class="row p-2">
                     <div class="col-9"></div>
                     <div class="col-2">
-                        <a class="btn btn-info" href='blog:update'>ОБНОВИТЬ</a>
+                        <a class="btn btn-info" href='blog_update'>ОБНОВИТЬ</a>
                     </div>
                     <div class="col-1">
-                        <a class = "btn btn-danger" href='blog:delete'>УДАЛИТЬ</a>
+                        <a class = "btn btn-danger" href='blog_delete'>УДАЛИТЬ</a>
                     </div>
                 </div>
             </div>
