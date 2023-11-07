@@ -13,6 +13,9 @@
                 <!--<p>Описание товара: {{ product.description_prod }}</p>-->
                 <p>Описание товара: {{ product.description | truncatechars:100 }}</p>
                 <p>Цена: {{ product.price }} руб.</p>
+                <p>Категория товара: {{ product.category | truncatechars:100 }}</p>
+                <p>Дата поступления: {{ product.date_created }} </p>
+                <p>Дата последнего изменения данных о товаре: {{ product.date_of_change | truncatechars:100 }}</p>
                 <button class="btn btn-primary">Добавить в корзину</button>
             </div>
         </div>

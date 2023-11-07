@@ -23,7 +23,7 @@
                     <img src="{{ product.image|media_url }}" alt="Card image">
                     <h3 class="card-title pricing-card-title">Цена: {{ product.price }} рублей</h3>
                     <h3 class="card-title pricing-card-title">Описание товара: {{ product.description|truncatechars:100 }}</h3>
-                    <a href="{% url 'product' product.id %}" class="btn btn-primary">Купить</a>
+                    <a href="{% url 'product' product.id %}" class="btn btn-primary">Ссылка на товар</a>
                 </div>
             </div>
         </div>
