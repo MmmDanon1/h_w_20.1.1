@@ -1,51 +1,30 @@
 {% extends 'products/base.html' %}
 
 {% block content %}
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-5"></div>
-        <div class="col-5">
-            <h1>ВСЕ СТАТЬИ</h1>
-        </div>
-    </div>
-</div>
 <div class="container">
-    <div class="row">
-        <div class="col-10"></div>
-        <div class="col-2">
-            <a class="btn" href="{% url 'blog_create' %}">ДОБАВИТЬ СТАТЬЮ</a>
-        </div>
+    <div class="col-12 mb-5">
+        <a class="btn btn-primary" href="{% url 'blog:create' %}">Добавить блог</a>
     </div>
 </div>
-<div class="container ">
     {% for object in object_list %}
-    <div class="row">
-        <div class="card mb-3 mt-3" style="max-width: 1500px;">
-            <div class="row g-0">
-                <div class="col-md-3">
-                    <img src="{{ object.preview }}" class="img-fluid rounded-start p-2" alt="...">
-                </div>
-                <div class="col-9">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ object.name|upper }}</h5>
-                        <p class="card-text">
-                            {{object.description|slice:"500"}}
-                        </p>
-                        <p><b>Дата публикации: </b>{{object.date_created}}</p>
-                    </div>
-                </div>
-                <div class="row p-2">
-                    <div class="col-9"></div>
-                    <div class="col-2">
-                        <a class="btn btn-info" href="{% url 'blog_update' object.slug %}">ОБНОВИТЬ</a>
-                    </div>
-                    <div class="col-1">
-                        <a class = "btn btn-danger" href="{% url 'blog_delete' object.slug %}">УДАЛИТЬ</a>
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <p class="card-text">
+                        {{object.name}}
+                    </p>
+                     <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a href="{% url 'blog:view' object.pk %}"
+                            class="btn btn-sm btn-outline-primary">View</a>
+                            <a href="{% url 'blog:edit' object.pk %}"
+                            class="btn btn-sm btn-outline-success">Edit</a>
+                            <a href="{% url 'blog:delete' object.pk %}"
+                            class="btn btn-sm btn-outline-danger">Delete</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     {% endfor %}
-</div>
 {% endblock %}

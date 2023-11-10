@@ -9,7 +9,7 @@ class Blog(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, verbose_name='дата создания')
     slug = models.CharField(max_length=150, verbose_name='slug', **NULLABLE)
     is_publish = models.BooleanField(default=True, verbose_name='публикации', **NULLABLE)
-    views_count = models.ImageField(default=0, verbose_name='просмотры')
+    views_count = models.IntegerField(default=0, verbose_name='просмотры')
 
     def __str__(self):
         return f'{self.name}, {self.description}'
