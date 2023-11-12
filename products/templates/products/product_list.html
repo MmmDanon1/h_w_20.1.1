@@ -10,6 +10,11 @@
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">Магазин товаров</h1>
 </div>
+<div class="container">
+    <div class="col-12 mb-5">
+        <a class="btn btn-primary" href="{% url 'products:create' %}">Добавить товар</a>
+    </div>
+</div>
 
 <div class="container">
     {% for product in object_list %}
@@ -23,7 +28,9 @@
                     <img src="{{ product.image|media_url }}" alt="Card image">
                     <h3 class="card-title pricing-card-title">Цена: {{ product.price }} рублей</h3>
                     <h3 class="card-title pricing-card-title">Описание товара: {{ product.description|truncatechars:100 }}</h3>
-                    <a href="{% url 'product' product.id %}" class="btn btn-primary">Ссылка на товар</a>
+                    <a href="{% url 'products:view' product.id %}" class="btn btn-sm btn-outline-primary">Ссылка на товар</a>
+                    <a href="{% url 'products:edit' product.pk %}" class="btn btn-sm btn-outline-success">Корректировать</a>
+                    <a href="{% url 'products:delete' product.pk %}" class="btn btn-sm btn-outline-danger">Удалить</a>
                 </div>
             </div>
         </div>
